@@ -1,5 +1,3 @@
-require "dbd_onto/version"
-
-module DbdOnto
-  # Your code goes here...
-end
+require 'dbd'
+require 'dbd_onto/version'
+require 'dbd_onto/base'
