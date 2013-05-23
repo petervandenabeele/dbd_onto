@@ -1,6 +1,6 @@
 # DbdOnto
 
-TODO: Write a gem description
+Ontologies for Dbd.
 
 ## Installation
 
@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Used by Dbd and applications that use Dbd.
 
 ## Contributing
 
