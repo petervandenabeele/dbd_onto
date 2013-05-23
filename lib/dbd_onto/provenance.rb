@@ -10,19 +10,25 @@ module DbdOnto
   private
 
     def provenance
-      @provenance ||= Dbd::ProvenanceResource.new
+      return @provenance if @provenance
+      @provenance = Dbd::ProvenanceResource.new
+      context_public = Dbd::ProvenanceFact.new(
+        predicate: 'prov:context',
+        object: 'public')
+      @provenance << context_public
     end
 
     def resource
-      @resource ||= Dbd::Resource.new(provenance_subject: provenance.subject)
-      context_predicate = Dbd::Fact.new(
+      return @resource if @resource
+      @resource = Dbd::Resource.new(provenance_subject: provenance.subject)
+      predicate_context = Dbd::Fact.new(
         predicate: 'rdf:predicate',
         object: 'prov:context')
-      context_label = Dbd::Fact.new(
+      label_context = Dbd::Fact.new(
         predicate: RDF::RDFS.label.qname.join(':'),
         object: 'Context')
-      @resource << context_predicate
-      @resource << context_label
+      @resource << predicate_context
+      @resource << label_context
     end
 
   end
