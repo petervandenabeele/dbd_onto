@@ -22,7 +22,7 @@ module DbdOnto
       return @resource if @resource
       @resource = Dbd::Resource.new(provenance_subject: provenance.subject)
       predicate_context = Dbd::Fact.new(
-        predicate: 'rdf:predicate',
+        predicate: 'meta:defines_predicate',
         object: 'prov:context')
       label_context = Dbd::Fact.new(
         predicate: RDF::RDFS.label.qname.join(':'),

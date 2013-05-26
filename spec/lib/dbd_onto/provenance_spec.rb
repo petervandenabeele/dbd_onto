@@ -16,9 +16,9 @@ describe DbdOnto::Provenance do
 
   describe "properties include" do
     describe "context" do
-      it "predicate is prov:context" do
+      it "defines the predicate prov:context" do
         subject.detect do |fact|
-          fact.predicate == 'rdf:predicate' &&
+          fact.predicate == 'meta:defines_predicate' &&
           fact.object == 'prov:context'
         end.should_not be_nil
       end
