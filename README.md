@@ -29,7 +29,7 @@ dbd_onto $ irb
 [ prov ] : 44c2dd0f : prov:context             : public
 [ prov ] : 44c2dd0f : prov:source              : https://github.com/petervandenabeele/dbd/blob/d37360070e7f8e6
 [ prov ] : 44c2dd0f : dcterms:creator          : Peter Vandenabeele (@peter_v)
-[ prov ] : 44c2dd0f : dcterms:created          : 2013-05-26 19:30:00 UTC
+[ prov ] : 44c2dd0f : dcterms:created          : 2013-05-26 21:30:00 UTC
 [ prov ] : 44c2dd0f : prov:license             : Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), 
 44c2dd0f : e350ae17 : meta:defines_predicate   : prov:context
 44c2dd0f : e350ae17 : rdfs:label               : Context
@@ -42,6 +42,15 @@ dbd_onto $ irb
 44c2dd0f : ece58739 : meta:defines_predicate   : dcterms:created
 44c2dd0f : ece58739 : rdfs:label               : Created
  => nil
+2.0.0-p195 :003 > DbdOnto::Meta.new.each {|f| puts f.short} ; nil
+[ prov ] : b75f3b8c : prov:context             : public
+[ prov ] : b75f3b8c : prov:source              : https://github.com/petervandenabeele/dbd_onto/blob/08adb5bf0e
+[ prov ] : b75f3b8c : dcterms:creator          : Peter Vandenabeele (@peter_v)
+[ prov ] : b75f3b8c : dcterms:created          : 2013-06-03 21:00:00 UTC
+[ prov ] : b75f3b8c : prov:license             : Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), 
+b75f3b8c : bd07e072 : meta:defines_predicate   : meta:defines_predicate
+b75f3b8c : bd07e072 : rdfs:label               : Defines predicate
+ => nil 
 ```
 
 [Dbd]:              https://github.com/petervandenabeele/dbd#readme
