@@ -26,6 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'yard'
   spec.add_runtime_dependency 'neography'
   spec.add_runtime_dependency 'rdf', '~> 1.0.6'
-  spec.add_runtime_dependency 'ruby_peter_v', '>= 0.0.4'
-  spec.add_runtime_dependency 'dbd', '>= 0.0.2'
+  spec.add_runtime_dependency 'ruby_peter_v', '>= 0.0.8'
+  spec.add_runtime_dependency 'dbd', '>= 0.0.5'
 end

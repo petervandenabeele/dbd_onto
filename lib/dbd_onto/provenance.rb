@@ -7,8 +7,8 @@ module DbdOnto
     def initialize
       super
       self << provenance
-      add_prov_attributes
-      add_dcterms_attributes
+      self << prov_resources
+      self << dcterms_resources
     end
 
   private
@@ -19,6 +19,7 @@ module DbdOnto
     end
 
     PROVENANCE = [
+     #[predicate, object]
       ['prov:context', 'public'],
       ['prov:source' , 'https://github.com/petervandenabeele/dbd/blob/d37360070e7f8e61a19c2bca210c881a151ded75/docs/rationale.md'],
       ['dcterms:creator' , 'Peter Vandenabeele (@peter_v)'],
@@ -40,23 +41,21 @@ module DbdOnto
         object: provenance_fact_data.last)
     end
 
-    def add_prov_attributes
-      PROV_ATTRIBUTES.each do |attribute|
+    def prov_resources
+      PROV_ATTRIBUTES.map do |attribute|
         resource = Dbd::Resource.new(provenance_subject: provenance.subject)
         resource << fact_defines_predicate_prov(attribute)
         resource << fact_label(attribute)
-        self << resource
       end
     end
 
     # NOTE using dcterms:creator is not exact for now as the range
     #      should be a dcterms:Agent and it is a Literal here.
-    def add_dcterms_attributes
-      DCTERMS_ATTRIBUTES.each do |attribute|
+    def dcterms_resources
+      DCTERMS_ATTRIBUTES.map do |attribute|
         resource = Dbd::Resource.new(provenance_subject: provenance.subject)
         resource << fact_defines_predicate_dcterms(attribute)
         resource << fact_label(attribute)
-        self << resource
       end
     end
 
