@@ -4,6 +4,8 @@ Ontologies for [Dbd].
 
 First a limited Provenance ontology is constructed, because it is required for all facts. This provenance ontology also has a provenance resource (using the provenance predicates defined in itself, to bootstrap the system).
 
+The Provenance ontology uses one meta:defines_predicate attribute from a new Meta ontology. This is needed to describe the definition of predicates, since predicates cannot be the subject of Fact (in Dbd, a subject is an abstract UUID, not a URI, so a link is needed between a resource (all facts with the same subject) and the predicate (that is then the object for this fact that defines the predicate)).
+
 [![Gem Version](https://badge.fury.io/rb/dbd_onto.png)](http://badge.fury.io/rb/dbd_onto)
 [![Build Status](https://travis-ci.org/petervandenabeele/dbd_onto.png?branch=master)](http://travis-ci.org/petervandenabeele/dbd_onto)
 
