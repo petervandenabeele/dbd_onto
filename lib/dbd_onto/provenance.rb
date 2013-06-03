@@ -19,7 +19,7 @@ module DbdOnto
         ['prov:context', 'public'],
         ['prov:source' , 'https://github.com/petervandenabeele/dbd/blob/d37360070e7f8e61a19c2bca210c881a151ded75/docs/rationale.md'],
         ['dcterms:creator' , 'Peter Vandenabeele (@peter_v)'],
-        ['dcterms:created', Time.new(2013,5,26,21,30,0).utc],
+        ['dcterms:created', Time.new(2013,5,26,23,30,0,'+02:00').utc],
         ['prov:license', 'Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), licensed under MIT license.']
       ]
     end

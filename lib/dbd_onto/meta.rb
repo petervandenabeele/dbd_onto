@@ -17,7 +17,7 @@ module DbdOnto
         ['prov:context', 'public'],
         ['prov:source' , 'https://github.com/petervandenabeele/dbd_onto/blob/08adb5bf0ed5cd259ad4d31d9d8ebbbe230c66b1/lib/dbd_onto/provenance.rb'],
         ['dcterms:creator' , 'Peter Vandenabeele (@peter_v)'],
-        ['dcterms:created', Time.new(2013,6,3,21,0,0).utc],
+        ['dcterms:created', Time.new(2013,6,3,23,0,0,'+02:00').utc],
         ['prov:license', 'Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), licensed under MIT license.']
       ]
     end
