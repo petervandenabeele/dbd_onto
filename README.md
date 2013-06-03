@@ -4,6 +4,9 @@ Ontologies for [Dbd].
 
 First a limited Provenance ontology is constructed, because it is required for all facts. This provenance ontology also has a provenance resource (using the provenance predicates defined in itself, to bootstrap the system).
 
+[![Gem Version](https://badge.fury.io/rb/dbd_onto.png)](http://badge.fury.io/rb/dbd_onto)
+[![Build Status](https://travis-ci.org/petervandenabeele/dbd_onto.png?branch=master)](http://travis-ci.org/petervandenabeele/dbd_onto)
+
 ## Installation
 
 Add this line to your application's Gemfile:
