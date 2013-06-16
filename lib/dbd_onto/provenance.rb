@@ -1,7 +1,7 @@
 module DbdOnto
   class Provenance < Base
 
-    PROV_ATTRIBUTES = %w(context source license)
+    PROV_ATTRIBUTES = %w(context encryption source license)
     DCTERMS_ATTRIBUTES = %w(creator created)
 
     def initialize
@@ -17,6 +17,7 @@ module DbdOnto
       [
        #[predicate, object]
         ['prov:context', 'public'],
+        ['prov:encryption', 'clear'],
         ['prov:source' , 'https://github.com/petervandenabeele/dbd/blob/d37360070e7f8e61a19c2bca210c881a151ded75/docs/rationale.md'],
         ['dcterms:creator' , 'Peter Vandenabeele (@peter_v)'],
         ['dcterms:created', Time.new(2013,5,26,23,30,0,'+02:00').utc],

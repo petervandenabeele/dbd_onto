@@ -15,6 +15,7 @@ describe DbdOnto::Provenance do
 
   def check_provenance?(provenance_facts)
     provenance_facts.detect {|p| p.predicate == 'prov:context' && p.object == 'public'} &&
+    provenance_facts.detect {|p| p.predicate == 'prov:encryption' && p.object == 'clear'} &&
     provenance_facts.detect {|p| p.predicate == 'prov:source'} &&
     provenance_facts.detect {|p| p.predicate == 'dcterms:creator'} &&
     provenance_facts.detect {|p| p.predicate == 'dcterms:created'} &&
@@ -27,6 +28,13 @@ describe DbdOnto::Provenance do
       subject.detect do |fact|
         fact.predicate == 'meta:defines_predicate' &&
         fact.object == 'prov:context'
+      end.subject
+    end
+
+    let(:encryption_subject) do
+      subject.detect do |fact|
+        fact.predicate == 'meta:defines_predicate' &&
+        fact.object == 'prov:encryption'
       end.subject
     end
 
@@ -55,6 +63,22 @@ describe DbdOnto::Provenance do
         context_facts.detect do |fact|
           fact.predicate == 'rdfs:label' &&
           fact.object == 'Context'
+        end.should_not be_nil
+      end
+    end
+
+    describe "prov:encryption" do
+
+      let(:encryption_facts) { subject.by_subject(encryption_subject) }
+
+      it "defines the predicate prov:encryption" do
+        encryption_subject.should_not be_nil
+      end
+
+      it "has label Encryption" do
+        encryption_facts.detect do |fact|
+          fact.predicate == 'rdfs:label' &&
+          fact.object == 'Encryption'
         end.should_not be_nil
       end
     end
