@@ -1,7 +1,6 @@
 require 'dbd'
-require 'dbd_onto/provenance_methods'
-require 'dbd_onto/fact_methods'
 require 'dbd_onto/version'
+require 'dbd_onto/fact_methods'
 require 'dbd_onto/meta_provenance'
 require 'dbd_onto/base'
 require 'dbd_onto/provenance'

@@ -1,12 +1,18 @@
 module DbdOnto
   module MetaProvenance
 
-    def meta_provenance
-      # memoize to avoid making new_provenance on each call
-      @provenance ||= new_provenance
+    def resource_with_meta_provenance
+        Dbd::Resource.new(provenance_subject: meta_provenance.subject)
     end
 
-    def new_provenance
+    def meta_provenance
+      # memoize to avoid making new_provenance on each call
+      @provenance_resource ||= new_provenance_resource
+    end
+
+  private
+
+    def new_provenance_resource
       Dbd::ProvenanceResource.new.tap do |_provenance|
         provenance_attributes.each do |provenance_fact_data|
           _provenance << provenance_fact(provenance_fact_data)
@@ -19,8 +25,6 @@ module DbdOnto
         predicate: provenance_fact_data.first,
         object: provenance_fact_data.last)
     end
-
-  private
 
     def provenance_attributes
       [

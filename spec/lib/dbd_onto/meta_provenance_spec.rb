@@ -4,7 +4,7 @@ module DbdOnto
   describe MetaProvenance do
 
     let(:meta_provenance_resource) do
-      Dbd::ProvenanceResource.new.tap do |_meta_provenance_resource|
+      Object.new.tap do |_meta_provenance_resource|
         _meta_provenance_resource.extend(described_class)
       end.meta_provenance
     end

@@ -6,28 +6,16 @@ module DbdOnto
 
     def initialize
       super
-      self << provenance
+      self << meta_provenance
       self << prov_resources
       self << dcterms_resources
     end
 
   private
 
-    def provenance_attributes
-      [
-       #[predicate, object]
-        ['prov:context', 'public'],
-        ['prov:encryption', 'clear'],
-        ['prov:source' , 'https://github.com/petervandenabeele/dbd/blob/d37360070e7f8e61a19c2bca210c881a151ded75/docs/rationale.md'],
-        ['dcterms:creator' , 'Peter Vandenabeele (@peter_v)'],
-        ['dcterms:created', Time.new(2013,5,26,23,30,0,'+02:00').utc],
-        ['prov:license', 'Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), licensed under MIT license.']
-      ]
-    end
-
     def prov_resources
       PROV_ATTRIBUTES.map do |attribute|
-        resource = Dbd::Resource.new(provenance_subject: provenance.subject)
+        resource = resource_with_meta_provenance
         resource << fact_defines_predicate_prov(attribute)
         resource << fact_label(attribute)
       end
@@ -37,7 +25,7 @@ module DbdOnto
     #      should be a dcterms:Agent and it is a Literal here.
     def dcterms_resources
       DCTERMS_ATTRIBUTES.map do |attribute|
-        resource = Dbd::Resource.new(provenance_subject: provenance.subject)
+        resource = resource_with_meta_provenance
         resource << fact_defines_predicate_dcterms(attribute)
         resource << fact_label(attribute)
       end
