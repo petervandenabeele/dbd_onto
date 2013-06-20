@@ -6,7 +6,7 @@ describe DbdOnto::Meta do
     subject.should be_a(Dbd::Graph)
   end
 
-  it "all facts in the provenance ontology have a provenance with context public" do
+  it "all facts in the meta ontology have a provenance with context public" do
     subject.all? do |fact|
       fact.is_a?(Dbd::ProvenanceFact) ||
         check_provenance?(subject.by_subject(fact.provenance_subject))
@@ -15,6 +15,7 @@ describe DbdOnto::Meta do
 
   def check_provenance?(provenance_facts)
     provenance_facts.detect {|p| p.predicate == 'prov:context' && p.object == 'public'} &&
+    provenance_facts.detect {|p| p.predicate == 'prov:encryption' && p.object == 'clear'} &&
     provenance_facts.detect {|p| p.predicate == 'prov:source'} &&
     provenance_facts.detect {|p| p.predicate == 'dcterms:creator'} &&
     provenance_facts.detect {|p| p.predicate == 'dcterms:created'} &&
