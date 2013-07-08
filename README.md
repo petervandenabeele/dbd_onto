@@ -25,34 +25,38 @@ The ontology is stored as a [Dbd]::Graph. Displaying it in short format:
 
 ```
 dbd_onto $ irb
-2.0.0-p195 :001 > require 'dbd_onto'
+2.0.0p247 :001 > require 'dbd_onto'
  => true
-2.0.0-p195 :002 > DbdOnto::Provenance.new.each {|f| puts f.short} ; nil
-[ prov ] : 44c2dd0f : prov:context             : public
-[ prov ] : 44c2dd0f : prov:source              : https://github.com/petervandenabeele/dbd/blob/d37360070e7f8e6
-[ prov ] : 44c2dd0f : dcterms:creator          : Peter Vandenabeele (@peter_v)
-[ prov ] : 44c2dd0f : dcterms:created          : 2013-05-26 21:30:00 UTC
-[ prov ] : 44c2dd0f : prov:license             : Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), 
-44c2dd0f : e350ae17 : meta:defines_predicate   : prov:context
-44c2dd0f : e350ae17 : rdfs:label               : Context
-44c2dd0f : 5256a1be : meta:defines_predicate   : prov:source
-44c2dd0f : 5256a1be : rdfs:label               : Source
-44c2dd0f : dd57068f : meta:defines_predicate   : prov:license
-44c2dd0f : dd57068f : rdfs:label               : License
-44c2dd0f : 5cddba10 : meta:defines_predicate   : dcterms:creator
-44c2dd0f : 5cddba10 : rdfs:label               : Creator
-44c2dd0f : ece58739 : meta:defines_predicate   : dcterms:created
-44c2dd0f : ece58739 : rdfs:label               : Created
+2.0.0p247 :002 > DbdOnto::Provenance.new.each {|f| puts f.short} ; nil
+[ prov ] : 9a5f4645 : prov:context             : public
+[ prov ] : 9a5f4645 : prov:encryption          : clear
+[ prov ] : 9a5f4645 : prov:source              : https://github.com/petervandenabeele/dbd/blob/d37360070e7f8e61a19c2bca210c881a15
+[ prov ] : 9a5f4645 : dcterms:creator          : Peter Vandenabeele (@peter_v)
+[ prov ] : 9a5f4645 : dcterms:created          : 2013-05-26 21:30:00 UTC
+[ prov ] : 9a5f4645 : prov:license             : Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), licensed under MIT
+9a5f4645 : 07ed816a : meta:defines_predicate   : prov:context
+9a5f4645 : 07ed816a : rdfs:label               : Context
+9a5f4645 : 73e8c183 : meta:defines_predicate   : prov:encryption
+9a5f4645 : 73e8c183 : rdfs:label               : Encryption
+9a5f4645 : 29fe4cd7 : meta:defines_predicate   : prov:source
+9a5f4645 : 29fe4cd7 : rdfs:label               : Source
+9a5f4645 : d42ae754 : meta:defines_predicate   : prov:license
+9a5f4645 : d42ae754 : rdfs:label               : License
+9a5f4645 : 7a5009e5 : meta:defines_predicate   : dcterms:creator
+9a5f4645 : 7a5009e5 : rdfs:label               : Creator
+9a5f4645 : 9b2102c1 : meta:defines_predicate   : dcterms:created
+9a5f4645 : 9b2102c1 : rdfs:label               : Created
  => nil
-2.0.0-p195 :003 > DbdOnto::Meta.new.each {|f| puts f.short} ; nil
-[ prov ] : b75f3b8c : prov:context             : public
-[ prov ] : b75f3b8c : prov:source              : https://github.com/petervandenabeele/dbd_onto/blob/08adb5bf0e
-[ prov ] : b75f3b8c : dcterms:creator          : Peter Vandenabeele (@peter_v)
-[ prov ] : b75f3b8c : dcterms:created          : 2013-06-03 21:00:00 UTC
-[ prov ] : b75f3b8c : prov:license             : Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), 
-b75f3b8c : bd07e072 : meta:defines_predicate   : meta:defines_predicate
-b75f3b8c : bd07e072 : rdfs:label               : Defines predicate
- => nil 
+2.0.0p247 :003 > DbdOnto::Meta.new.each {|f| puts f.short} ; nil
+[ prov ] : bc51eaa4 : prov:context             : public
+[ prov ] : bc51eaa4 : prov:encryption          : clear
+[ prov ] : bc51eaa4 : prov:source              : https://github.com/petervandenabeele/dbd/blob/d37360070e7f8e61a19c2bca210c881a15
+[ prov ] : bc51eaa4 : dcterms:creator          : Peter Vandenabeele (@peter_v)
+[ prov ] : bc51eaa4 : dcterms:created          : 2013-05-26 21:30:00 UTC
+[ prov ] : bc51eaa4 : prov:license             : Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), licensed under MIT
+bc51eaa4 : ecfef395 : meta:defines_predicate   : meta:defines_predicate
+bc51eaa4 : ecfef395 : rdfs:label               : Defines predicate
+ => nil
 ```
 
 [Dbd]:              https://github.com/petervandenabeele/dbd#readme
