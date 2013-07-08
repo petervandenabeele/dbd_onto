@@ -4,7 +4,8 @@ script: "bundle exec rspec spec"
 rvm:
   - 2.0.0
   - 1.9.3
-  - 1.9.2
   - jruby-19mode
-  - ruby-head
   - jruby-head
+branches:
+  only:
+    - master
