@@ -1,6 +1,9 @@
 module DbdOnto
   class Provenance < Base
 
+    # NOTE This complete implementation probably needs to be
+    #      adapted to use the recent W3C Provenance work:
+    #      http://www.w3.org/TR/2013/NOTE-prov-overview-20130430/
     PROV_ATTRIBUTES = %w(context encryption source license)
     DCTERMS_ATTRIBUTES = %w(creator created)
 
