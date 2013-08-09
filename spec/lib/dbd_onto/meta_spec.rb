@@ -2,16 +2,16 @@ require 'spec_helper'
 
 describe DbdOnto::Meta do
 
-  include Spec::Provenance
+  include Spec::Context
 
   it "is a Dbd::Graph" do
     subject.should be_a(Dbd::Graph)
   end
 
-  it "all facts in the meta ontology have a provenance with context public" do
+  it "all facts in the meta ontology have the meta context" do
     subject.all? do |fact|
-      fact.is_a?(Dbd::ProvenanceFact) ||
-        check_provenance?(subject.by_subject(fact.provenance_subject))
+      fact.is_a?(Dbd::ContextFact) ||
+        check_context?(subject.by_subject(fact.context_subject))
     end.should be_true
   end
 

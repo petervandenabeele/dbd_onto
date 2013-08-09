@@ -1,13 +1,13 @@
 module Spec
-  module Provenance
+  module Context
 
-    def check_provenance?(provenance_resource)
-      provenance_resource.detect {|p| p.predicate == 'prov:context' && p.object == 'public'} &&
-      provenance_resource.detect {|p| p.predicate == 'prov:encryption' && p.object == 'clear'} &&
-      provenance_resource.detect {|p| p.predicate == 'prov:source'} &&
-      provenance_resource.detect {|p| p.predicate == 'dcterms:creator'} &&
-      provenance_resource.detect {|p| p.predicate == 'dcterms:created'} &&
-      provenance_resource.detect {|p| p.predicate == 'prov:license'}
+    def check_context?(context_resource)
+      context_resource.detect {|p| p.predicate == 'context:visibility' && p.object == 'public'} &&
+      context_resource.detect {|p| p.predicate == 'context:encryption' && p.object == 'clear'} &&
+      context_resource.detect {|p| p.predicate == 'context:license'} &&
+      context_resource.detect {|p| p.predicate == 'dc:source'} &&
+      context_resource.detect {|p| p.predicate == 'dc:creator'} &&
+      context_resource.detect {|p| p.predicate == 'dcterms:created'}
     end
 
   end

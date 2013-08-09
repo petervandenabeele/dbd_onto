@@ -3,3 +3,9 @@
 
 * A basic DbdOnto::Provenance ontology
 * bootstrapping with a self referential provenance ontology
+
+0.0.2 (2013-08-09)
+=====
+
+* Update to Dbd 0.0.14 (Provenance => Context)
+* use dc:creator (instead of dcterms:creator that has a specific range)

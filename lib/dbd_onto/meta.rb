@@ -5,7 +5,7 @@ module DbdOnto
 
     def initialize
       super
-      self << meta_provenance
+      self << meta_context
       self << meta_resources
     end
 
@@ -13,7 +13,7 @@ module DbdOnto
 
     def meta_resources
       META_ATTRIBUTES.map do |attribute|
-        resource = resource_with_meta_provenance
+        resource = resource_with_meta_context
         resource << fact_defines_predicate_meta(attribute)
         resource << fact_label(attribute)
       end

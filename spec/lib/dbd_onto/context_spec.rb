@@ -1,61 +1,61 @@
 require 'spec_helper'
 
-describe DbdOnto::Provenance do
+describe DbdOnto::Context do
 
-  include Spec::Provenance
+  include Spec::Context
 
   it "is a Dbd::Graph" do
     subject.should be_a(Dbd::Graph)
   end
 
-  it "all facts in the provenance ontology have a provenance with context public" do
+  it "all facts in the context ontology have the meta context as context" do
     subject.all? do |fact|
-      fact.is_a?(Dbd::ProvenanceFact) ||
-        check_provenance?(subject.by_subject(fact.provenance_subject))
+      fact.is_a?(Dbd::ContextFact) ||
+        check_context?(subject.by_subject(fact.context_subject))
     end.should be_true
   end
 
   describe "properties include" do
 
-    let(:context_subject) do
+    let(:visibility_subject) do
       subject.detect do |fact|
         fact.predicate == 'meta:defines_predicate' &&
-        fact.object == 'prov:context'
+        fact.object == 'context:visibility'
       end.subject
     end
 
     let(:encryption_subject) do
       subject.detect do |fact|
         fact.predicate == 'meta:defines_predicate' &&
-        fact.object == 'prov:encryption'
+        fact.object == 'context:encryption'
       end.subject
     end
 
     let(:source_subject) do
       subject.detect do |fact|
         fact.predicate == 'meta:defines_predicate' &&
-        fact.object == 'prov:source'
+        fact.object == 'dc:source'
       end.subject
     end
 
     describe "prov:subject and prov:source" do
       it "are different subjects" do
-        context_subject.should_not == source_subject
+        visibility_subject.should_not == source_subject
       end
     end
 
-    describe "prov:context" do
+    describe "context:visibility" do
 
-      let(:context_facts) { subject.by_subject(context_subject) }
+      let(:visibility_facts) { subject.by_subject(visibility_subject) }
 
-      it "defines the predicate prov:context" do
-        context_subject.should_not be_nil
+      it "defines the predicate context:visibility" do
+        visibility_subject.should_not be_nil
       end
 
       it "has label Context" do
-        context_facts.detect do |fact|
+        visibility_facts.detect do |fact|
           fact.predicate == 'rdfs:label' &&
-          fact.object == 'Context'
+          fact.object == 'Visibility'
         end.should_not be_nil
       end
     end
@@ -92,11 +92,11 @@ describe DbdOnto::Provenance do
       end
     end
 
-    describe "dcterms:creator" do
+    describe "dc:creator" do
       it "defines the predicate" do
         subject.detect do |fact|
           fact.predicate == 'meta:defines_predicate' &&
-          fact.object == 'dcterms:creator'
+          fact.object == 'dc:creator'
         end.should_not be_nil
       end
     end
@@ -110,11 +110,11 @@ describe DbdOnto::Provenance do
       end
     end
 
-    describe "prov:license" do
+    describe "context:license" do
       it "defines the predicate" do
         subject.detect do |fact|
           fact.predicate == 'meta:defines_predicate' &&
-          fact.object == 'prov:license'
+          fact.object == 'context:license'
         end.should_not be_nil
       end
     end

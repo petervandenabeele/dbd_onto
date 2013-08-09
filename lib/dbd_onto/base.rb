@@ -1,6 +1,6 @@
 module DbdOnto
   class Base < Dbd::Graph
-    include MetaProvenance
+    include MetaContext
     include FactMethods
   end
 end
