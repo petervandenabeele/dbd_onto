@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'guard-rspec'
   spec.add_development_dependency 'terminal-notifier-guard'
   spec.add_development_dependency 'yard'
-  spec.add_runtime_dependency 'rdf', '~> 1.0.6'
+  spec.add_runtime_dependency 'rdf'
   spec.add_runtime_dependency 'ruby_peter_v', '>= 0.0.11'
   spec.add_runtime_dependency 'dbd', '>= 0.0.14'
 end
