@@ -7,14 +7,14 @@ module DbdOnto
 
     def meta_context
       # memoize to avoid making new_context on each call
-      @context_resource ||= new_context_resource
+      @meta_context ||= new_meta_context
     end
 
   private
 
-    def new_context_resource
+    def new_meta_context
       Dbd::Context.new.tap do |_context|
-        context_attributes.each do |context_fact_data|
+        meta_context_attributes.each do |context_fact_data|
           _context << context_fact(context_fact_data)
         end
       end
@@ -26,7 +26,7 @@ module DbdOnto
         object: context_fact_data.last)
     end
 
-    def context_attributes
+    def meta_context_attributes
       [
        #[predicate, object]
         ['context:visibility', 'public'],
