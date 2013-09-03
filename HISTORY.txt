@@ -9,3 +9,8 @@
 
 * Update to Dbd 0.0.14 (Provenance => Context)
 * use dc:creator (instead of dcterms:creator that has a specific range)
+
+0.0.3 (2013-09-03)
+=====
+
+* DbdOnto::Meta now has static data (constant id, subject, ...)

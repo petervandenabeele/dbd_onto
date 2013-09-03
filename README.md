@@ -28,14 +28,14 @@ The ontology is stored as a [Dbd]::Graph. Displaying it in short format:
 2.0.0p247 :001 > require 'dbd_onto'
  => true
 2.0.0p247 :002 > DbdOnto::Meta.new.each {|f| puts f.short} ; nil
-[ cont ] : bd5ae676 : context:visibility       : public
-[ cont ] : bd5ae676 : context:encryption       : clear
-[ cont ] : bd5ae676 : context:license          : Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), licensed under MIT
-[ cont ] : bd5ae676 : dc:source                : https://github.com/petervandenabeele/dbd/blob/d37360070e7f8e61a19c2bca210c881a15
-[ cont ] : bd5ae676 : dc:creator               : Peter Vandenabeele (@peter_v)
-[ cont ] : bd5ae676 : dcterms:created          : 2013-08-09 21:45:00 UTC
-bd5ae676 : 8c20a99a : meta:defines_predicate   : meta:defines_predicate
-bd5ae676 : 8c20a99a : rdfs:label               : Defines predicate
+[ cont ] : 36c0b50f : context:visibility       : public
+[ cont ] : 36c0b50f : context:encryption       : clear
+[ cont ] : 36c0b50f : context:license          : Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), licensed under MIT
+[ cont ] : 36c0b50f : dc:source                : https://github.com/petervandenabeele/dbd/blob/d37360070e7f8e61a19c2bca210c881a15
+[ cont ] : 36c0b50f : dc:creator               : Peter Vandenabeele (@peter_v)
+[ cont ] : 36c0b50f : dcterms:created          : 2013-08-09 21:45:00 UTC
+36c0b50f : 619e69d4 : meta:defines_predicate   : meta:defines_predicate
+36c0b50f : 619e69d4 : rdfs:label               : Defines predicate
  => nil
 2.0.0p247 :003 > DbdOnto::Context.new.each {|f| puts f.short} ; nil
 [ cont ] : 6aac5473 : context:visibility       : public

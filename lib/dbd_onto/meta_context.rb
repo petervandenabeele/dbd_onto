@@ -1,8 +1,8 @@
 module DbdOnto
   module MetaContext
 
-    def resource_with_meta_context
-        Dbd::Resource.new(context_subject: meta_context.subject)
+    def resource_with_meta_context(options = {})
+        Dbd::Resource.new(context_subject: meta_context.subject, subject: options[:subject])
     end
 
     def meta_context
