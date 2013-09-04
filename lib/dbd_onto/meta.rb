@@ -15,16 +15,7 @@ module DbdOnto
       graph = Dbd::Graph.new.from_CSV(meta_facts_csv)
       subject = graph.subjects.single
       meta_facts = graph.by_subject(subject)
-      resource = resource_with_meta_context(subject: subject)
-      add_meta_facts(resource, meta_facts)
-      resource
-    end
-
-    def add_meta_facts(resource, meta_facts)
-      # NOTE this can be cleaned-up when Dbd is Context << [] is fixed
-      meta_facts.each do |meta_fact|
-        resource << meta_fact
-      end
+      resource_with_meta_context(subject: subject) << meta_facts
     end
 
     def meta_facts_csv
