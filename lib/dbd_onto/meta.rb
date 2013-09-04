@@ -1,8 +1,6 @@
 module DbdOnto
   class Meta < Base
 
-    META_ATTRIBUTES = %w(defines_predicate)
-
     def initialize
       super
       self << meta_context
@@ -12,13 +10,10 @@ module DbdOnto
   private
 
     def meta_resource
-      graph = Dbd::Graph.new.from_CSV(meta_facts_csv)
-      subject = graph.subjects.single
-      meta_facts = graph.by_subject(subject)
-      resource_with_meta_context(subject: subject) << meta_facts
+      Dbd::Graph.new.from_CSV(meta_resource_csv)
     end
 
-    def meta_facts_csv
+    def meta_resource_csv
 <<EOS
 "2013-09-03 21:41:36.627034414 UTC","1e84b23b-edf0-49f5-8ad3-76182dcfa124","36c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126c","meta:defines_predicate","meta:defines_predicate"
 "2013-09-03 21:41:36.627066056 UTC","96d595be-205d-4c3a-8724-35b46457f9ed","36c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126c","rdfs:label","Defines predicate"

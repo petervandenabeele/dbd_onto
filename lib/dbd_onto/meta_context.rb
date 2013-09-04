@@ -14,8 +14,7 @@ module DbdOnto
     def fixed_meta_context
       graph = Dbd::Graph.new.from_CSV(fixed_meta_context_csv)
       subject = graph.subjects.single
-      context_facts = graph.by_subject(subject)
-      Dbd::Context.new(subject: subject) << context_facts
+      Dbd::Context.new(subject: subject) << graph
     end
 
     def fixed_meta_context_csv

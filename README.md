@@ -17,14 +17,14 @@ Add this line to your application's Gemfile:
 
 ## Usage
 
-Used by Dbd and applications that use Dbd.
+E.g. use the predicates defined in DbdOnto::Context to fully populate a Context.
 
 ## Examples
 
 The ontology is stored as a [Dbd]::Graph. Displaying it in short format:
 
 ```
-/Users/peter_v/dbd_onto $ irb
+$ irb
 2.0.0p247 :001 > require 'dbd_onto'
  => true
 2.0.0p247 :002 > DbdOnto::Meta.new.each {|f| puts f.short} ; nil
@@ -37,25 +37,25 @@ The ontology is stored as a [Dbd]::Graph. Displaying it in short format:
 36c0b50f : 619e69d4 : meta:defines_predicate   : meta:defines_predicate
 36c0b50f : 619e69d4 : rdfs:label               : Defines predicate
  => nil
-2.0.0p247 :003 > DbdOnto::Context.new.each {|f| puts f.short} ; nil
-[ cont ] : 6aac5473 : context:visibility       : public
-[ cont ] : 6aac5473 : context:encryption       : clear
-[ cont ] : 6aac5473 : context:license          : Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), licensed under MIT
-[ cont ] : 6aac5473 : dc:source                : https://github.com/petervandenabeele/dbd/blob/d37360070e7f8e61a19c2bca210c881a15
-[ cont ] : 6aac5473 : dc:creator               : Peter Vandenabeele (@peter_v)
-[ cont ] : 6aac5473 : dcterms:created          : 2013-08-09 21:45:00 UTC
-6aac5473 : a2e3ed3f : meta:defines_predicate   : context:visibility
-6aac5473 : a2e3ed3f : rdfs:label               : Visibility
-6aac5473 : 57ff4dc0 : meta:defines_predicate   : context:encryption
-6aac5473 : 57ff4dc0 : rdfs:label               : Encryption
-6aac5473 : d3a1fcc9 : meta:defines_predicate   : context:license
-6aac5473 : d3a1fcc9 : rdfs:label               : License
-6aac5473 : aea4f895 : meta:defines_predicate   : dc:source
-6aac5473 : aea4f895 : rdfs:label               : Source
-6aac5473 : f60f60ba : meta:defines_predicate   : dc:creator
-6aac5473 : f60f60ba : rdfs:label               : Creator
-6aac5473 : 225c6fe5 : meta:defines_predicate   : dcterms:created
-6aac5473 : 225c6fe5 : rdfs:label               : Created
+2.0.0p247 :003 >  DbdOnto::Context.new.each {|f| puts f.short} ; nil
+[ cont ] : 36c0b50f : context:visibility       : public
+[ cont ] : 36c0b50f : context:encryption       : clear
+[ cont ] : 36c0b50f : context:license          : Copyright 2013 Peter Vandenabeele (http://vandenabeele.com), licensed under MIT
+[ cont ] : 36c0b50f : dc:source                : https://github.com/petervandenabeele/dbd/blob/d37360070e7f8e61a19c2bca210c881a15
+[ cont ] : 36c0b50f : dc:creator               : Peter Vandenabeele (@peter_v)
+[ cont ] : 36c0b50f : dcterms:created          : 2013-08-09 21:45:00 UTC
+36c0b50f : 03e72b0c : meta:defines_predicate   : context:visibility
+36c0b50f : 03e72b0c : rdfs:label               : Visibility
+36c0b50f : 735ae2a2 : meta:defines_predicate   : context:encryption
+36c0b50f : 735ae2a2 : rdfs:label               : Encryption
+36c0b50f : 5b2c73e5 : meta:defines_predicate   : context:license
+36c0b50f : 5b2c73e5 : rdfs:label               : License
+36c0b50f : ffc41d9c : meta:defines_predicate   : dc:source
+36c0b50f : ffc41d9c : rdfs:label               : Source
+36c0b50f : 2b5008b0 : meta:defines_predicate   : dc:creator
+36c0b50f : 2b5008b0 : rdfs:label               : Creator
+36c0b50f : 4aba46de : meta:defines_predicate   : dcterms:created
+36c0b50f : 4aba46de : rdfs:label               : Created
  => nil
 ```
 

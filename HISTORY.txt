@@ -14,3 +14,9 @@
 =====
 
 * DbdOnto::Meta now has static data (constant id, subject, ...)
+
+0.0.4 (2013-09-94)
+=====
+
+* DbdOnto::Meta and Context are now fully static data
+* simplification of code (using Dbd 0.0.19)
