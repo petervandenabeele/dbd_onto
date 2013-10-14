@@ -7,6 +7,8 @@ module DbdOnto
       self << context_definition
     end
 
+  private
+
     def context_definition
       Dbd::Graph.new.from_CSV(context_definition_csv)
     end
