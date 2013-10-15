@@ -33,9 +33,9 @@ EOS
 "2013-10-14 21:43:42.473735776 UTC","d780b54c-5aad-44a7-9e9e-c8d7a7084276","","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","context:visibility","public"
 "2013-10-14 21:43:42.473775562 UTC","bf5b97ec-d026-4a73-b8fb-a13995966ec1","","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","context:encryption","clear"
 "2013-10-14 21:43:42.473796239 UTC","1351e568-f7e6-44bf-b5b0-54c15cefe5e0","","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","context:license","Copyright the sponsors of Schema.org: Google, Inc., Yahoo, Inc., and Microsoft Corporation. Licensed under Creative Commons Attribution-ShareAlike License (version 3.0) (see http://schema.org/docs/terms.html)"
-"2013-10-14 21:43:42.473812175 UTC","c83715de-4cb3-4022-93c6-fb9ec95851bf","","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","dc:source","https://github.com/ruby-rdf/rdf + http://schema.org"
-"2013-10-14 21:43:42.473828787 UTC","3baa9125-6278-4a70-9a40-7f2baf32ae00","","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","dc:creator","Gregg Kellogg (@Gkellogg) + http://schema.org"
-"2013-10-14 21:43:42.473845509 UTC","9424e4bc-5922-463b-8fc6-521ca5585c23","","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","dcterms:created","2013-10-13 21:56:00 UTC"
+"2013-10-14 21:43:42.473812175 UTC","c83715de-4cb3-4022-93c6-fb9ec95851bf","","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","dc:source","http://schema.org"
+"2013-10-14 21:43:42.473828787 UTC","3baa9125-6278-4a70-9a40-7f2baf32ae00","","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","dc:creator","Peter Vandenabeele (@peter_v)"
+"2013-10-14 21:43:42.473845509 UTC","9424e4bc-5922-463b-8fc6-521ca5585c23","","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","dcterms:created","2013-10-15 21:56:00 UTC"
 EOS
     end
   end
