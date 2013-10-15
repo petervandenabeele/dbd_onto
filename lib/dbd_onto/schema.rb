@@ -14,18 +14,21 @@ module DbdOnto
     end
 
     def schema_resource_csv
-      self.class.generate
 #<<EOS
-#"2013-10-14 21:55:36.627034414 UTC","1f84b23b-edf0-49f5-8ad3-76182dcfa124","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126c","meta:defines_predicate","schema:about"
+#"2013-10-15 22:07:13.538320274 UTC","288aaa82-914a-4605-a4a2-0087c64baedb","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","e85ca573-8cf8-4108-9bea-7686d68f5b82","meta:defines_predicate","schema:about"
+#"2013-10-15 22:07:13.538354436 UTC","391bcb37-6075-4d74-9373-4b156c4a047e","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","e85ca573-8cf8-4108-9bea-7686d68f5b82","rdf:uri","http://schema.org/about"
+#"2013-10-15 22:07:13.538370320 UTC","0a638e09-59f1-4a3f-a4c5-b50237fb249e","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","e85ca573-8cf8-4108-9bea-7686d68f5b82","rdfs:label","about"
+#"2013-10-15 22:07:13.538385796 UTC","631c8d7a-a75e-4681-99d9-4c658c38398b","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","e85ca573-8cf8-4108-9bea-7686d68f5b82","rdfs:comment","The subject matter of the content."
+#... many more predicates
 #EOS
+
+      # temporary , will be replaced by a static CSV string
+      self.class.generate
     end
 
     # This code is reused on 2013-10-15 with permission from the ruby-rdf/rdf project
     # from the file https://github.com/ruby-rdf/rdf/blob/master/lib/rdf/vocab/schema.rb
     # It was licensed as "public domain" (https://github.com/ruby-rdf/rdf/blob/master/UNLICENSE)
-    #
-    # NOTE: It has 2 dependencies. But, rdf-rdfa relies on nokogiri, which since 1.6 takes
-    # a very long time to build, so commenting that out in the gemspec by default.
     def self.generate
       require 'addressable/uri'
       require 'rdf/rdfa'
@@ -37,7 +40,9 @@ module DbdOnto
       v.query(property: RDF.type, object: RDF.Property) do |c|
         uri = c.subject.to_s
         schema_predicate = "schema:#{uri.split('/').last}"
-        schema_hash[schema_predicate] = {'rdf:uri' => uri}
+        schema_hash[schema_predicate] = {
+            'meta:defines_predicate' => schema_predicate,
+            'rdf:uri' => uri}
       end
 
       # fill the required properties from the RDF::Graph
@@ -52,21 +57,17 @@ module DbdOnto
         end
       end
 
+      # create a graoh with 1 resource per schema:<predicate>
+      # we now save the schema:<predicate>, rdf:uri, rdfs:label and rdfs:comment
       schema_resource = Base.new
       schema_context = schema_resource.schema_context
 
       schema_hash.each do |schema_predicate, properties_hash|
         resource = Dbd::Resource.new(context_subject: schema_context.subject)
-        meta_defines_predicate = Dbd::Fact.new(
-          predicate: 'meta:defines_predicate',
-          object: schema_predicate)
-        resource << meta_defines_predicate
-
         properties_hash.each do |predicate, object|
-          schema_fact = Dbd::Fact.new(
-              predicate: predicate,
-              object: object)
-          resource << schema_fact
+          resource << Dbd::Fact.new(
+            predicate: predicate,
+            object: object)
         end
         schema_resource << resource
       end
