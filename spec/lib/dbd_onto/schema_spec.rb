@@ -23,5 +23,30 @@ describe DbdOnto::Schema do
           fact.object == 'schema:about'
       end.should_not be_nil
     end
+
+    it 'defines predicate rdf:uri' do
+      subject.detect do |fact|
+        fact.predicate == 'rdf:uri' &&
+          fact.object == 'http://schema.org/unitCode'
+      end.should_not be_nil
+    end
+
+    it 'defines predicate rdfs:label' do
+      subject.detect do |fact|
+        fact.predicate == 'rdfs:label' &&
+          fact.object == 'tickerSymbol'
+      end.should_not be_nil
+    end
+
+    it 'defines predicate rdfs:comment' do
+      subject.detect do |fact|
+        fact.predicate == 'rdfs:comment' &&
+          fact.object == 'The type of tissue sample required for the test.'
+      end.should_not be_nil
+    end
+  end
+
+  describe '.generate' do
+    described_class.generate
   end
 end
