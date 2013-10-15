@@ -26,4 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'rdf', '>= 1.0.9'
   spec.add_runtime_dependency 'ruby_peter_v', '>= 0.0.11'
   spec.add_runtime_dependency 'dbd', '>= 0.0.19'
+  # only needed for DbdOnto::Schema.generate
+  spec.add_runtime_dependency 'rdf-rdfa', '>= 1.0.2'
+  spec.add_runtime_dependency 'equivalent-xml'
 end
