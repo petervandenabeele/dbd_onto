@@ -8,6 +8,14 @@ describe DbdOnto::Schema do
     subject.should be_a(Dbd::Graph)
   end
 
+  context 'performance optimalisation: loads from file only once per class load' do
+    it "when calling new twice it does not receive the file load at all" do
+      described_class.should_not_receive(:filename)
+      described_class.new
+      described_class.new
+    end
+  end
+
   it 'all facts in the Schema ontology have the schema_context as context' do
     subject.all? do |fact|
       fact.is_a?(Dbd::ContextFact) ||

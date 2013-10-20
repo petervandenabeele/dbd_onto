@@ -4,20 +4,26 @@ module DbdOnto
     def initialize
       super
       self << schema_context
-      self << schema_resource
+      self << self.class.schema_resource
     end
 
   private
 
-    def schema_resource
-      # FIXME this takes about 0.47 seconds on each load
-      # FIXME (expected performance ... 2500 facts at 200 us)
-      # FIXME that will be unworkable for tests and production
-      Dbd::Graph.new.from_CSV(File.open(filename))
+    def self.filename
+      File.expand_path('../schema_data.csv', __FILE__)
     end
 
-    def filename
-      File.expand_path('../schema_data.csv', __FILE__)
+    # performance optimization (a bit ugly, but it works ...)
+    # use a class instance variable to cache the schema_resource
+    # at _load_ time! Also tried "memoization" increases reported
+    # RSpec test time from 0.20 to 0.67 seconds (which could be
+    # relevant, since we really want to minimize the _run-time_
+    # cost after loading the Ruby/Rails app (e.g. in Passenger))
+
+    @schema_resource = Dbd::Graph.new.from_CSV(File.open(filename))
+
+    def self.schema_resource
+      @schema_resource
     end
 
     # This code is reused on 2013-10-15 with permission from the ruby-rdf/rdf project
