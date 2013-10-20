@@ -30,3 +30,8 @@
 =====
 
 * DbdOnto::Schema has Schema.org predicates with descriptions
+
+0.0.7 (2013-10-20)
+=====
+
+* DbdOnto::Context and DbdOnto::Meta have URI and Comment properties
