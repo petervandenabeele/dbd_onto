@@ -35,3 +35,8 @@
 =====
 
 * DbdOnto::Context and DbdOnto::Meta have URI and Comment properties
+
+0.0.8 (2013-10-20)
+=====
+
+* Move the ontology documentation to ../data dir (and adapt the graphs)
