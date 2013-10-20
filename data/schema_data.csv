@@ -2506,3 +2506,4 @@
 "2013-10-18 19:16:41.952230508 UTC","05940f71-cdf8-4b72-b208-c0ee8aaedb43","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","220e44e5-b388-43d7-9e1c-59afe98c1690","rdf:uri","http://schema.org/worstRating"
 "2013-10-18 19:16:41.952244074 UTC","52fbf4b0-2592-4fea-8079-f556d7d2495c","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","220e44e5-b388-43d7-9e1c-59afe98c1690","rdfs:label","worstRating"
 "2013-10-18 19:16:41.952258090 UTC","e9cf6d52-d772-4932-b6d7-0e531dcf9807","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","220e44e5-b388-43d7-9e1c-59afe98c1690","rdfs:comment","The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed."
+"2013-10-20 20:54:35.000000000 UTC","e9cf6d52-d772-4932-b6d7-0e531dcf9808","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","d00871dc-c805-47e2-b147-c89e9f634903","meta:predicate_used","true"
