@@ -45,8 +45,4 @@ describe DbdOnto::Schema do
       end.should_not be_nil
     end
   end
-
-  describe '.generate' do
-    described_class.generate
-  end
 end

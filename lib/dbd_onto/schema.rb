@@ -10,20 +10,14 @@ module DbdOnto
   private
 
     def schema_resource
-      Dbd::Graph.new.from_CSV(schema_resource_csv)
+      # FIXME this takes about 0.47 seconds on each load
+      # FIXME (expected performance ... 2500 facts at 200 us)
+      # FIXME that will be unworkable for tests and production
+      Dbd::Graph.new.from_CSV(File.open(filename))
     end
 
-    def schema_resource_csv
-#<<EOS
-#"2013-10-15 22:07:13.538320274 UTC","288aaa82-914a-4605-a4a2-0087c64baedb","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","e85ca573-8cf8-4108-9bea-7686d68f5b82","meta:defines_predicate","schema:about"
-#"2013-10-15 22:07:13.538354436 UTC","391bcb37-6075-4d74-9373-4b156c4a047e","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","e85ca573-8cf8-4108-9bea-7686d68f5b82","rdf:uri","http://schema.org/about"
-#"2013-10-15 22:07:13.538370320 UTC","0a638e09-59f1-4a3f-a4c5-b50237fb249e","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","e85ca573-8cf8-4108-9bea-7686d68f5b82","rdfs:label","about"
-#"2013-10-15 22:07:13.538385796 UTC","631c8d7a-a75e-4681-99d9-4c658c38398b","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","e85ca573-8cf8-4108-9bea-7686d68f5b82","rdfs:comment","The subject matter of the content."
-#... many more predicates
-#EOS
-
-      # temporary , will be replaced by a static CSV string
-      self.class.generate
+    def filename
+      File.expand_path('../schema_data.csv', __FILE__)
     end
 
     # This code is reused on 2013-10-15 with permission from the ruby-rdf/rdf project
@@ -76,4 +70,3 @@ module DbdOnto
     end
   end
 end
-
