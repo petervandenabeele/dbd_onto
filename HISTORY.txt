@@ -25,3 +25,8 @@
 =====
 
 * Refactor (remove an unused method)
+
+0.0.6 (2013-10-20)
+=====
+
+* DbdOnto::Schema has Schema.org predicates with descriptions

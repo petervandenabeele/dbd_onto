@@ -10,7 +10,7 @@ module DbdOnto
   private
 
     def self.filename
-      File.expand_path('../schema_data.csv', __FILE__)
+      File.expand_path('../../../data/schema_data.csv', __FILE__)
     end
 
     # performance optimization (a bit ugly, but it works ...)
