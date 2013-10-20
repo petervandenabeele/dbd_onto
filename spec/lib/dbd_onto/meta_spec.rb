@@ -10,8 +10,10 @@ describe DbdOnto::Meta do
 
   it 'all facts in the meta ontology have the meta_context' do
     subject.all? do |fact|
-      fact.is_a?(Dbd::ContextFact) ||
+      begin
+        fact.is_a?(Dbd::ContextFact) ||
         check_context?(subject.by_subject(fact.context_subject))
+      end
     end.should be_true
   end
 
@@ -19,8 +21,10 @@ describe DbdOnto::Meta do
 
     let(:meta_defines_predicate_subject) do
       subject.detect do |fact|
-        fact.predicate == 'meta:defines_predicate' &&
-        fact.object == 'meta:defines_predicate'
+        begin
+          fact.predicate == 'meta:defines_predicate' &&
+          fact.object == 'meta:defines_predicate'
+        end
       end.subject
     end
 
@@ -34,8 +38,22 @@ describe DbdOnto::Meta do
 
       it 'has label "Defines predicate"' do
         defines_predicate_facts.detect do |fact|
-          fact.predicate == 'rdfs:label' &&
-          fact.object == 'Defines predicate'
+          begin
+            fact.predicate == 'rdfs:label' &&
+            fact.object == 'Defines predicate'
+          end
+        end.should_not be_nil
+      end
+
+      it 'has a URI' do
+        defines_predicate_facts.detect do |fact|
+          fact.predicate == 'rdf:uri'
+        end.should_not be_nil
+      end
+
+      it 'has a comment' do
+        defines_predicate_facts.detect do |fact|
+          fact.predicate == 'rdfs:comment'
         end.should_not be_nil
       end
     end
