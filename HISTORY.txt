@@ -40,3 +40,9 @@
 =====
 
 * Move the ontology documentation to ../data dir (and adapt the graphs)
+
+0.0.11 (2013-10-23)
+======
+
+* no history for 0.0.9 and 0.0.10
+* update to use Dbd 0.1.0
