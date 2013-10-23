@@ -10,7 +10,7 @@ module DbdOnto
   private
 
     def meta_resource
-      Dbd::Graph.new.from_CSV(meta_resource_csv)
+      ::Dbd::Graph.new.from_CSV(meta_resource_csv)
     end
 
     def meta_resource_csv

@@ -4,16 +4,16 @@ module DbdOnto
     def initialize
       super
       self << meta_context
-      self << context_definition
+      self << context_resource
     end
 
   private
 
-    def context_definition
-      Dbd::Graph.new.from_CSV(context_definition_csv)
+    def context_resource
+      ::Dbd::Graph.new.from_CSV(context_resource_csv)
     end
 
-    def context_definition_csv
+    def context_resource_csv
 <<EOS
 "2013-09-04 20:06:29.398680722 UTC","49a95413-64b6-4f86-ad44-caa7b03931f6","36c0b50f-834e-45f5-a911-e3f2b47fe4b9","03e72b0c-041f-4afd-aab4-520db49b1fb1","meta:defines_predicate","s","context:visibility"
 "2013-09-04 20:06:29.398711938 UTC","1614f36e-5b64-43ef-9228-ef391dc2902a","36c0b50f-834e-45f5-a911-e3f2b47fe4b9","03e72b0c-041f-4afd-aab4-520db49b1fb1","rdfs:label","s","Visibility"
