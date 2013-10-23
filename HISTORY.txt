@@ -46,3 +46,8 @@
 
 * no history for 0.0.9 and 0.0.10
 * update to use Dbd 0.1.0
+
+0.0.12 (2013-10-23)
+======
+
+* Add a Dbd ontology
