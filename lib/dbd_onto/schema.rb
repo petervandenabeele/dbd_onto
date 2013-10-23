@@ -67,6 +67,7 @@ module DbdOnto
         properties_hash.each do |predicate, object|
           resource << Dbd::Fact.new(
             predicate: predicate,
+            object_type: 's', # should 'u' for the uri
             object: object)
         end
         schema_resource << resource

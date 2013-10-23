@@ -90,7 +90,7 @@ describe DbdOnto::Context do
 
     def assert_uri_present(resource)
       resource.detect do |fact|
-        fact.predicate == 'rdf:uri'
+        fact.predicate == 'dbd:rdf_uri'
       end.should_not be_nil
     end
 

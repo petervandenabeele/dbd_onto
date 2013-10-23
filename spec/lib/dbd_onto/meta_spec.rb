@@ -47,7 +47,7 @@ describe DbdOnto::Meta do
 
       it 'has a URI' do
         defines_predicate_facts.detect do |fact|
-          fact.predicate == 'rdf:uri'
+          fact.predicate == 'dbd:rdf_uri'
         end.should_not be_nil
       end
 

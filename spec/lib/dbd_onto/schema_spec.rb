@@ -36,10 +36,10 @@ describe DbdOnto::Schema do
       end.should_not be_nil
     end
 
-    it 'defines predicate rdf:uri' do
+    it 'defines predicate dbd:rdf_uri' do
       subject.detect do |fact|
         begin
-          fact.predicate == 'rdf:uri' &&
+          fact.predicate == 'dbd:rdf_uri' &&
           fact.object == 'http://schema.org/unitCode'
         end
       end.should_not be_nil
