@@ -69,4 +69,13 @@ describe DbdOnto::Schema do
       end.should_not be_nil
     end
   end
+
+  describe 'data is frozen (to avoid corruption of the class level copy)' do
+    it 'modifying the collection fails' do
+      context_fact = Dbd::ContextFact.new(predicate: 'foo', object_type: 's', object: 'bar')
+      context = Dbd::Context.new
+      context << context_fact
+      lambda{ subject << context }.should raise_error(RuntimeError, /frozen/)
+    end
+  end
 end

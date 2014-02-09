@@ -5,6 +5,7 @@ module DbdOnto
       super
       self << schema_context
       self << self.class.schema_resource
+      self.freeze
     end
 
   private

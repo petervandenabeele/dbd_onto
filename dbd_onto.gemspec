@@ -23,9 +23,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'guard-rspec'
   spec.add_development_dependency 'terminal-notifier-guard'
   spec.add_development_dependency 'yard'
-  spec.add_runtime_dependency 'rdf', '>= 1.0.9'
+  spec.add_runtime_dependency 'rdf', '>= 1.1'
   spec.add_runtime_dependency 'ruby_peter_v', '>= 0.0.13'
-  spec.add_runtime_dependency 'dbd', '~> 0.1.0'
+  spec.add_runtime_dependency 'dbd', '~> 0.1.3'
   # only needed for DbdOnto::Schema.generate
   spec.add_runtime_dependency 'rdf-rdfa', '>= 1.0.2'
   spec.add_runtime_dependency 'equivalent-xml'
