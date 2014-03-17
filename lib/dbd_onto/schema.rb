@@ -40,7 +40,7 @@ module DbdOnto
     # This code is reused on 2013-10-15 with permission from the ruby-rdf/rdf project
     # from the file https://github.com/ruby-rdf/rdf/blob/master/lib/rdf/vocab/schema.rb
     # It was licensed as "public domain" (https://github.com/ruby-rdf/rdf/blob/master/UNLICENSE)
-    def self.generate
+    def self.generate_schema_data
       require 'addressable/uri'
       require 'rdf/rdfa'
       v = RDF::Graph.load("http://schema.org/docs/schema_org_rdfa.html", format: :rdfa)
