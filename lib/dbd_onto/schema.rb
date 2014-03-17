@@ -5,13 +5,18 @@ module DbdOnto
       super
       self << schema_context
       self << self.class.schema_resource
+      self << self.class.used_predicates
       self.freeze
     end
 
   private
 
-    def self.filename
+    def self.schema_filename
       File.expand_path('../../../data/schema_data.csv', __FILE__)
+    end
+
+    def self.used_predicates_filename
+      File.expand_path('../../../data/used_predicates_data.csv', __FILE__)
     end
 
     # performance optimization (a bit ugly, but it works ...)
@@ -21,10 +26,15 @@ module DbdOnto
     # relevant, since we really want to minimize the _run-time_
     # cost after loading the Ruby/Rails app (e.g. in Passenger))
 
-    @schema_resource = Dbd::Graph.new.from_CSV(File.open(filename))
+    @schema_resource = Dbd::Graph.new.from_CSV(File.open(schema_filename))
+    @used_predicates = Dbd::Graph.new.from_CSV(File.open(used_predicates_filename))
 
     def self.schema_resource
       @schema_resource
+    end
+
+    def self.used_predicates
+      @used_predicates
     end
 
     # This code is reused on 2013-10-15 with permission from the ruby-rdf/rdf project

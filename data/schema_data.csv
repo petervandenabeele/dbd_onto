@@ -2506,6 +2506,3 @@
 "2013-10-18 19:16:41.952230508 UTC","05940f71-cdf8-4b72-b208-c0ee8aaedb43","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","220e44e5-b388-43d7-9e1c-59afe98c1690","dbd:rdf_uri","s","http://schema.org/worstRating"
 "2013-10-18 19:16:41.952244074 UTC","52fbf4b0-2592-4fea-8079-f556d7d2495c","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","220e44e5-b388-43d7-9e1c-59afe98c1690","rdfs:label","s","worstRating"
 "2013-10-18 19:16:41.952258090 UTC","e9cf6d52-d772-4932-b6d7-0e531dcf9807","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","220e44e5-b388-43d7-9e1c-59afe98c1690","rdfs:comment","s","The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed."
-"2013-10-20 20:54:35.000000000 UTC","e9cf6d52-d772-4932-b6d7-0e531dcf9808","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","d00871dc-c805-47e2-b147-c89e9f634903","meta:predicate_used","s","true"
-"2014-02-09 21:29:01.000000000 UTC","e9cf6d52-d772-4932-b6d7-0e531dcf9809","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","47c36607-5d5f-415f-beda-e411fc3ec19f","meta:predicate_used","s","true"
-"2014-02-09 21:29:02.000000000 UTC","e9cf6d52-d772-4932-b6d7-0e531dcf980a","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","1ed23195-8efd-4315-8d9b-33c2efc7fc8a","meta:predicate_used","s","true"
