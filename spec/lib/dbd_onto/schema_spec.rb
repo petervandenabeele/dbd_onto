@@ -70,6 +70,40 @@ describe DbdOnto::Schema do
     end
   end
 
+  describe 'used predicates' do
+    it 'includes schema:about' do
+      about_subject = subject.detect do |fact|
+        begin
+          fact.predicate == 'meta:defines_predicate' &&
+          fact.object == 'schema:about'
+        end
+      end.subject
+      subject.detect do |fact|
+        begin
+          fact.subject == about_subject &&
+          fact.predicate == 'meta:predicate_used' &&
+          fact.object == 'true'
+        end
+      end.should_not be_nil
+    end
+
+    it 'includes schema:email' do
+      about_subject = subject.detect do |fact|
+        begin
+          fact.predicate == 'meta:defines_predicate' &&
+          fact.object == 'schema:email'
+        end
+      end.subject
+      subject.detect do |fact|
+        begin
+          fact.subject == about_subject &&
+          fact.predicate == 'meta:predicate_used' &&
+          fact.object == 'true'
+        end
+      end.should_not be_nil
+    end
+  end
+
   describe 'data is frozen (to avoid corruption of the class level copy)' do
     it 'modifying the collection fails' do
       context_fact = Dbd::ContextFact.new(predicate: 'foo', object_type: 's', object: 'bar')

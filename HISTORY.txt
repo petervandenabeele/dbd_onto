@@ -57,3 +57,8 @@
 
 * a few more schema predicates to the used_predicate list
 * fix the freeze feature on the Schema
+
+0.0.14 (2014-03-17)
+======
+
+* 90+ additional schema predicates are added

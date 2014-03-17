@@ -1,3 +1,5 @@
+require 'dbd'
+
 module DbdOnto
   class Schema < Base
 
@@ -76,7 +78,7 @@ module DbdOnto
       schema_hash.each do |schema_predicate, properties_hash|
         resource = Dbd::Resource.new(context_subject: schema_context.subject)
         properties_hash.each do |predicate, object|
-          resource << Dbd::Fact.new(
+          resource << ::Dbd::Fact.new(
             predicate: predicate,
             object_type: 's', # should 'u' for the uri
             object: object)
@@ -85,6 +87,45 @@ module DbdOnto
       end
 
       schema_resource.to_CSV
+    end
+
+    def self.used_predicates_list_filename
+      File.expand_path('../../../data/used_predicates_list.csv', __FILE__)
+    end
+
+    def self.generate_used_predicates_data
+      # Build the list of used_predicates
+      used_predicates = [].tap do |_used_predicates|
+        File.open(used_predicates_list_filename) do |file|
+          file.readlines.each do |line|
+            subject, _ = line.split(/,/)
+            subject.gsub!(/"/, '')
+            _used_predicates << subject
+          end
+        end
+      end
+
+      # create a graoh with 1 fact per entry
+      used_predicates_graph = Base.new
+      schema_context = used_predicates_graph.schema_context
+
+      used_predicates.each do |used_subject|
+        fact = ::Dbd::Fact.new(
+          context_subject: schema_context.subject,
+          subject: used_subject,
+          predicate: "meta:predicate_used",
+          object_type: 's', # upgrade to boolean
+          object: 'true'
+        )
+        used_predicates_graph  << fact
+      end
+
+      csv_data = used_predicates_graph.to_CSV
+      filename = '/Users/peter_v/Documents/data/github/petervandenabeele/dbd_onto/data/used_predicates_data.csv'
+      File.open(filename, 'w') do |file|
+        file << csv_data
+      end
+      csv_data
     end
   end
 end
