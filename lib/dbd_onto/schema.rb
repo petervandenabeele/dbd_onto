@@ -6,7 +6,7 @@ module DbdOnto
     def initialize
       super
       self << schema_context
-      self << self.class.schema_resource
+      self << self.class.schema
       self << self.class.used_predicates
       self.freeze
     end
@@ -22,17 +22,17 @@ module DbdOnto
     end
 
     # performance optimization (a bit ugly, but it works ...)
-    # use a class instance variable to cache the schema_resource
+    # use a class instance variable to cache the schema
     # at _load_ time! Also tried "memoization" increases reported
     # RSpec test time from 0.20 to 0.67 seconds (which could be
     # relevant, since we really want to minimize the _run-time_
     # cost after loading the Ruby/Rails app (e.g. in Passenger))
 
-    @schema_resource = Dbd::Graph.new.from_CSV(File.open(schema_filename))
+    @schema = Dbd::Graph.new.from_CSV(File.open(schema_filename))
     @used_predicates = Dbd::Graph.new.from_CSV(File.open(used_predicates_filename))
 
-    def self.schema_resource
-      @schema_resource
+    def self.schema
+      @schema
     end
 
     def self.used_predicates
@@ -42,7 +42,7 @@ module DbdOnto
     # This code is reused on 2013-10-15 with permission from the ruby-rdf/rdf project
     # from the file https://github.com/ruby-rdf/rdf/blob/master/lib/rdf/vocab/schema.rb
     # It was licensed as "public domain" (https://github.com/ruby-rdf/rdf/blob/master/UNLICENSE)
-    def self.generate_schema_data
+    def self.generate_schema
       require 'addressable/uri'
       require 'rdf/rdfa'
       v = RDF::Graph.load("http://schema.org/docs/schema_org_rdfa.html", format: :rdfa)
@@ -72,8 +72,8 @@ module DbdOnto
 
       # create a graoh with 1 resource per schema:<predicate>
       # we now save the schema:<predicate>, rdf:uri, rdfs:label and rdfs:comment
-      schema_resource = Base.new
-      schema_context = schema_resource.schema_context
+      schema = Base.new
+      schema_context = schema.schema_context
 
       schema_hash.each do |schema_predicate, properties_hash|
         resource = Dbd::Resource.new(context_subject: schema_context.subject)
@@ -83,10 +83,10 @@ module DbdOnto
             object_type: 's', # should 'u' for the uri
             object: object)
         end
-        schema_resource << resource
+        schema << resource
       end
 
-      schema_resource.to_CSV
+      schema.to_CSV
     end
 
     def self.used_predicates_list_filename
