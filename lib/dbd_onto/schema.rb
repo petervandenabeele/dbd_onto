@@ -49,6 +49,7 @@ module DbdOnto
 
       schema_hash = {}
 
+      # NOTE: it is unclear if this now generates rdf:uri or dbd:rdf_uri as predicates
       # build the list of schema:predicates
       v.query(property: RDF.type, object: RDF.Property) do |c|
         uri = c.subject.to_s
