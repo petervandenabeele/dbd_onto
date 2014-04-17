@@ -91,7 +91,7 @@ module DbdOnto
     end
 
     def self.used_predicates_list_filename
-      File.expand_path('../../../data/used_predicates_list.csv', __FILE__)
+      File.expand_path('../../../data/used_schema_predicates_list.csv', __FILE__)
     end
 
     def self.generate_used_predicates_data
