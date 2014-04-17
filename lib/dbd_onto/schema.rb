@@ -1,5 +1,3 @@
-require 'dbd'
-
 module DbdOnto
   class Schema < Base
 
