@@ -16,7 +16,7 @@ module DbdOnto
     end
 
     def self.used_predicates_filename
-      File.expand_path('../../../data/used_predicates_data.csv', __FILE__)
+      File.expand_path('../../../data/used_schema_predicates_data.csv', __FILE__)
     end
 
     # performance optimization (a bit ugly, but it works ...)
@@ -120,7 +120,7 @@ module DbdOnto
       end
 
       csv_data = used_predicates_graph.to_CSV
-      filename = '/Users/peter_v/Documents/data/github/petervandenabeele/dbd_onto/data/used_predicates_data.csv'
+      filename = '/Users/peter_v/Documents/data/github/petervandenabeele/dbd_onto/data/used_schema_predicates_data.csv'
       File.open(filename, 'w') do |file|
         file << csv_data
       end
