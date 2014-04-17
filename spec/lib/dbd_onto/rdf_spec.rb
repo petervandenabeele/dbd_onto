@@ -52,6 +52,12 @@ describe DbdOnto::Rdf do
           fact.predicate == 'rdfs:comment'
         end.should_not be_nil
       end
+
+      it 'is used' do
+        rdf_type_facts.detect do |fact|
+          fact.predicate == 'meta:predicate_used'
+        end.should_not be_nil
+      end
     end
   end
 end
