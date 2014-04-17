@@ -62,3 +62,9 @@
 ======
 
 * 90+ additional schema predicates are added
+
+0.0.15 (2014-04-17)
+======
+
+* Add DbdOnto::Rdf with rdf:type
+
