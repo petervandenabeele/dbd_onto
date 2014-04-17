@@ -9,6 +9,10 @@ module DbdOnto
       fixed_context(fixed_schema_context_csv)
     end
 
+    def rdf_context
+      fixed_context(fixed_rdf_context_csv)
+    end
+
   private
 
     def fixed_context(csv_string)
@@ -38,5 +42,17 @@ EOS
 "2013-10-14 21:43:42.473845509 UTC","9424e4bc-5922-463b-8fc6-521ca5585c23","","37c0b50f-834e-45f5-a911-e3f2b47fe4b9","dcterms:created","s","2013-10-15 21:56:00 UTC"
 EOS
     end
+
+    def fixed_rdf_context_csv
+      <<EOS
+"2014-04-17 19:23:43.473735776 UTC","b71d95c4-a9a1-4ef2-a257-1cc5a3949c30","","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","context:visibility","s","public"
+"2014-04-17 19:23:43.473775562 UTC","b71d95c4-a9a1-4ef2-a257-1cc5a3949c31","","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","context:encryption","s","clear"
+"2014-04-17 19:23:43.473796239 UTC","b71d95c4-a9a1-4ef2-a257-1cc5a3949c32","","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","context:license","s","Copyright 2014 Peter Vandenabeele"
+"2014-04-17 19:23:43.473812175 UTC","b71d95c4-a9a1-4ef2-a257-1cc5a3949c33","","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","dc:source","s","http://www.w3.org/TR/rdf-schema/"
+"2014-04-17 19:23:43.473828787 UTC","b71d95c4-a9a1-4ef2-a257-1cc5a3949c34","","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","dc:creator","s","Peter Vandenabeele (@peter_v)"
+"2014-04-17 19:23:43.473845509 UTC","b71d95c4-a9a1-4ef2-a257-1cc5a3949c35","","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","dcterms:created","s","2014-04-17 19:43:00 UTC"
+EOS
+    end
+
   end
 end
