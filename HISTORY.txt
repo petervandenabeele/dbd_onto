@@ -68,3 +68,8 @@
 
 * Add DbdOnto::Rdf with rdf:type
 
+0.0.16 (2014-04-24)
+======
+
+* Meta predicates also have meta:predicated_used
+
