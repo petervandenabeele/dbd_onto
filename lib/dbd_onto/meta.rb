@@ -23,6 +23,8 @@ module DbdOnto
 "2013-09-03 21:41:36.627070056 UTC","96d595be-205d-4c3a-8724-35b46457f9f0","36c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126d","rdfs:label","s","Predicate used"
 "2013-09-03 21:41:36.627071056 UTC","96d595be-205d-4c3a-8724-35b46457f9f1","36c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126d","dbd:rdf_uri","s","https://github.com/petervandenabeele/dbd_onto/blob/master/data/meta.md"
 "2013-09-03 21:41:36.627072056 UTC","96d595be-205d-4c3a-8724-35b46457f9f2","36c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126d","rdfs:comment","s","Is this predicate used in the UI for creating new resources?"
+"2014-04-24 06:41:36.000001000 UTC","96d595be-205d-4c3a-8724-35b46457f9f3","36c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126c","meta:predicate_used","s","true"
+"2014-04-24 06:41:36.000002000 UTC","96d595be-205d-4c3a-8724-35b46457f9f4","36c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126d","meta:predicate_used","s","true"
 EOS
     end
 
