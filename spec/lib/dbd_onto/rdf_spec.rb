@@ -59,5 +59,48 @@ describe DbdOnto::Rdf do
         end.should_not be_nil
       end
     end
+
+    let(:rdfs_class_subject) do
+      subject.detect do |fact|
+        fact.predicate == 'meta:defines_predicate' &&
+          fact.object == 'rdfs:class'
+      end.subject
+    end
+
+    describe 'rdfs_class' do
+
+      let(:rdfs_class_facts) { subject.by_subject(rdfs_class_subject) }
+
+      it 'defines the predicate rdfs_class' do
+        rdfs_class_subject.should_not be_nil
+      end
+
+      it 'has label "RDF class"' do
+        rdfs_class_facts.detect do |fact|
+          begin
+            fact.predicate == 'rdfs:label' &&
+            fact.object == 'RDF class'
+          end
+        end.should_not be_nil
+      end
+
+      it 'has a URI' do
+        rdfs_class_facts.detect do |fact|
+          fact.predicate == 'dbd:rdf_uri'
+        end.should_not be_nil
+      end
+
+      it 'has a comment' do
+        rdfs_class_facts.detect do |fact|
+          fact.predicate == 'rdfs:comment'
+        end.should_not be_nil
+      end
+
+      it 'is used' do
+        rdfs_class_facts.detect do |fact|
+          fact.predicate == 'meta:class_used'
+        end.should_not be_nil
+      end
+    end
   end
 end

@@ -20,6 +20,11 @@ module DbdOnto
 "2014-04-17 19:30:36.627067056 UTC","74eae2a4-06c6-41c1-94b9-298905dcbd02","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126c","dbd:rdf_uri","s","http://www.w3.org/TR/rdf-schema/#ch_type"
 "2014-04-17 19:30:36.627068056 UTC","74eae2a4-06c6-41c1-94b9-298905dcbd03","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126c","rdfs:comment","s","Is used to state that a resource is an instance of a class."
 "2014-04-17 19:30:36.627069056 UTC","74eae2a4-06c6-41c1-94b9-298905dcbd04","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126c","meta:predicate_used","s","true"
+"2014-04-29 17:30:36.627034414 UTC","74eae2a4-06c6-41c1-94b9-298905dcbd05","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126d","meta:defines_predicate","s","rdfs:class"
+"2014-04-29 17:30:36.627066056 UTC","74eae2a4-06c6-41c1-94b9-298905dcbd06","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126d","rdfs:label","s","RDF class"
+"2014-04-29 17:30:36.627067056 UTC","74eae2a4-06c6-41c1-94b9-298905dcbd07","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126d","dbd:rdf_uri","s","http://www.w3.org/TR/rdf-schema/#ch_class"
+"2014-04-29 17:30:36.627068056 UTC","74eae2a4-06c6-41c1-94b9-298905dcbd08","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126d","rdfs:comment","s","This is the class of resources that are RDF classes."
+"2014-04-29 17:30:36.627069056 UTC","74eae2a4-06c6-41c1-94b9-298905dcbd09","38c0b50f-834e-45f5-a911-e3f2b47fe4b9","619e69d4-6dad-4b14-bfce-8fd67d8e126d","meta:class_used","s","true"
 EOS
     end
 
